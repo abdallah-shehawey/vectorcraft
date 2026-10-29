@@ -170,5 +170,8 @@ real_name = "Andrés Ortega Montoya"
 display_name = "Andrés Ortega Montoya"
 sync_github_name = false
 
+[people.krosk93]
+sync_github_name = true
+
 [people.abdallah-shehawey]
 sync_github_name = true

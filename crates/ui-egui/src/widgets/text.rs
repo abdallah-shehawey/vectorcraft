@@ -1,7 +1,7 @@
 use super::labels::{PreviousLabel, label_field, name_field, take_previous_label};
 use super::numeric::mixed_field_named;
 use super::panel_chrome::chevron_cell;
-use super::*;
+use super::{Rect, Response, Stroke, StrokeKind, Tokens, Ui, id_with, vec2};
 
 /// The flag `dialogs::show` raises while it draws the body of a dialog that has just opened; the
 /// first enabled field drawn takes it ([`take_dialog_focus`]).
@@ -206,7 +206,11 @@ pub(super) fn recessed_text(
                 .inner_margin(margin)
                 .show(ui, |ui| {
                     crate::theme::strong_selected_text(ui);
-                    let edit = if rows > 1 { egui::TextEdit::multiline(&mut buf).desired_rows(rows) } else { egui::TextEdit::singleline(&mut buf) };
+                    let edit = if rows > 1 {
+                        egui::TextEdit::multiline(&mut buf).desired_rows(rows)
+                    } else {
+                        egui::TextEdit::singleline(&mut buf).align(egui::Align2::LEFT_CENTER)
+                    };
                     ui.add(
                         edit.id(id)
                             .frame(egui::Frame::NONE)
@@ -293,6 +297,7 @@ pub fn search_field(ui: &mut Ui, id: egui::Id, hint: &str) -> String {
                 egui::TextEdit::singleline(&mut query)
                     .id(id.with("edit"))
                     .frame(egui::Frame::NONE)
+                    .align(egui::Align2::LEFT_CENTER)
                     .hint_text(egui::RichText::new(tl!(hint)).italics())
                     .desired_width(ui.available_width()),
             );
