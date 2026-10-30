@@ -149,6 +149,7 @@ Ranked; detail in [docs/roadmap.md](docs/roadmap.md) and [docs/gaps.md](docs/gap
 
 | Date | What landed |
 |---|---|
+| 2026-10-29 | Linux: a clipboard that can't be opened (the Flatpak on GNOME, where arboard has neither data-control nor X11) is retried after 1 s, doubling to a minute, and logged once, where the background Paste check used to reconnect and log a warning every 250 ms (267k warnings in 18 h). Scores and estimates unchanged. |
 | 2026-10-27 | Reconcile the current upstream modules and craft-libs `92d392c` while retaining the window-restoration egui pin `69750b7`; feature readiness estimates are unchanged. |
 | 2026-10-21 | 3D lighting: four original lighting presets shared by Revolve, Extrude & Bevel, Inflate and Rotate, with command access and manual Custom settings; scores and estimates unchanged. |
 | 2026-10-21 | Print: the Print dialog's Media list has the Japanese papers — JIS B4 (257 × 364 mm), JIS B5 (182 × 257 mm) and JIS B6 next to the ISO B4/B5 (which keep their ISO 216 dimensions for settings saved before them), はがき 100 × 148 mm, 往復はがき 148 × 200 mm, 封筒 長形3号 120 × 235 mm / 長形4号 90 × 225 mm / 角形2号 240 × 332 mm / 角形3号 216 × 277 mm and 四六判 127 × 188 mm. A paper is named by its JSON id or its dialog label, any case and spacing (`B5 (JIS)` or `b5jis`), and every added size prints as its own PDF page size. Headline numbers unchanged. |
@@ -204,6 +205,8 @@ The full pre-standard record of what landed is kept in [docs/roadmap.md](docs/ro
 
 | Date | Change | Summary |
 |---|---|---|
+| 2026-10-30 | trivial | Preserve control-session window isolation through upstream periodic preference saves and multi-window merging; retain the latest interactive window geometry while saving other settings. Regression covers absent and existing legacy geometry. Scores and estimates unchanged. |
+| 2026-10-29 | minor | Progress log row for the Linux clipboard retry backoff; headline numbers unchanged. |
 | 2026-10-27 | trivial | Reconcile the current upstream modules and craft-libs `92d392c` while retaining the window-restoration egui pin `69750b7`; feature readiness estimates are unchanged. |
 | 2026-10-26 | trivial | Native window restoration on Linux X11 moves disconnected-monitor positions onto a connected monitor without replacing the native size or maximized state. Control-channel runs also skip legacy window restore and preserve the user's saved geometry when saving other preferences. Scores and estimates unchanged. |
 | 2026-10-26 | trivial | Progress log: windows reopen at their last size or maximized at any interface size; caption buttons on the GNOME Wayland system frame, Preferences › User Interface › System Title Bar, or `VECTORCRAFT_TITLEBAR=system` (storytold/egui#3) |
